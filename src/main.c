@@ -1,34 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   filler.h                                           :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/08 16:36:09 by jmeier           ###   ########.fr       */
+/*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
+/*   Updated: 2018/01/08 16:36:05 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FILLER_H
-# define FILLER_H
-# include <libft.h>
-# include <stdio.h>
+#include <filler.h>
 
-typedef struct	s_coord;
+int		main(int ac, char *av[])
 {
+	t_bodo	board;
+	char	*str;
 
+	board = ft_memalloc(sizeof(t_bodo));
+	parse_map(bodo);
 }
-
-typedef struct	s_bodo
-{
-	int		playa;
-	int		dimx;
-	int		dimy;
-	char	**piece;
-	char	**map;
-
-}				t_bodo;
-
-
-#endif
