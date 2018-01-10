@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/08 16:36:09 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/09 23:22:58 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,19 +15,22 @@
 # include <libft.h>
 # include <stdio.h>
 
-typedef struct	s_coord;
+typedef struct	s_piece;
 {
-
-}
+	char	**grid;
+	char	*x;
+	char	*y;
+}				t_piece;
 
 typedef struct	s_bodo
 {
-	int		playa;
 	int		dimx;
 	int		dimy;
-	char	**piece;
+	int		step;
+	char	player;
 	char	**map;
-
+	char	**prev;
+	t_piece	*piece;
 }				t_bodo;
 
 

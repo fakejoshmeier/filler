@@ -6,28 +6,30 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/08 16:36:02 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/09 23:22:04 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <filler.h>
 
-void	parse_map(t_bodo board)
+void	get_player(char *str, t_bodo *board)
 {
-	char	*str;
-	int		pf;
+	char	*tmp;
+	int		i;
 
-	pf = 0;
-	while (get_next_line(&str, 1) > 0)
+	i = -1;
+	tmp = str;
+	while (tmp[++i])
 	{
-		if (ft_strstr(&str, "exec"))
+		if (ft_isdigit(tmp[i]))
 		{
-
+			board->player = tmp[i] == 1 ? 'x' : 'o';
+			return ;
 		}
-		ft_strnstr(&str, "Plateau", 7) != 0 ? get_dimensions(&str, board) : 0;
-		ft_strnstr(&str, "Piece", 5) != 0 ? get_piss(&str, board) && pf = 1 : 0;
-		pf == 0 ? check_map(&str, board) : get_token(&str, board);
 	}
 }
 
-void	draw_map(t_bodo board)
+void	get_dimensions(char *str, t_bodo *board)
+void	get_piece(char *str, t_bodo *board)
+void	get_token(char *str, t_bodo *board)
+void	map_storage(char *str, t_bodo *board)
