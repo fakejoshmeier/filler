@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/09 23:22:06 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/10 18:17:52 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	suite(char *str, t_bodo *board)
 		get_dimensions(str, board); //sets prog to 2 at the end
 	if (!map && board->prog == 2)
 		map_storage(str, board);
-	if (ft_strnstr(str, "Piece", 5) && board->prog == 2)
+	if (ft_strnstr(str, "Piece", 5) && board->prog == 3)
 		get_piece(str, board);
 	if (board->!piece && board->prog == 3)
 		get_token(str, board);
@@ -45,15 +45,15 @@ void	suite(char *str, t_bodo *board)
 	}
 }
 
-}
 int		main(void)
 {
 	t_bodo	*board;
 	char	*str;
 
 	board = ft_memalloc(sizeof(t_bodo));
-	while (get_next_line(0, &str))
+	while (get_next_line(0, &str) && board->prog < 5)
 		suite(str, board);
 	free(bodo);
+	free(str);
 	return (0);
 }
