@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/10 18:17:52 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/13 17:59:33 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	suite(char *str, t_bodo *board)
 		get_player(str, board); //sets prog to 1 at the end
 	if (ft_strnstr(str, "Plateau", 7) && board->prog == 1)
 		get_dimensions(str, board); //sets prog to 2 at the end
-	if (!map && board->prog == 2)
+	if (!ft_strnstr(str, "012345", 6) && board->prog == 2)
 		map_storage(str, board);
 	if (ft_strnstr(str, "Piece", 5) && board->prog == 3)
 		get_piece(str, board);

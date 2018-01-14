@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/13 17:36:41 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/13 18:01:03 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ void	get_player(char *str, t_bodo *board)
 	else
 		++i;
 	}
+	board->prog = 1;
 }
 
 void	get_dimensions(char *str, t_bodo *board)
@@ -39,6 +40,7 @@ void	get_dimensions(char *str, t_bodo *board)
 		board->dimx = board->dimx * 10 + (str[i] - '0');
 	while (str[++i] != ':')
 		board->dimy = board->dimy * 10 + (str[i] - '0');
+	board->prog = 2;
 }
 
 void	get_piece(char *str, t_bodo *board)
