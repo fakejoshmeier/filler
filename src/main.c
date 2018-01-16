@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/13 17:59:33 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/16 00:40:16 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,13 @@
  * 	prog4 - piece is added into map, stored new map is stored in prev, and map
  * 	is wiped. Prog gets set back to 2 until loop dies
 */
-void	suite(char *str, t_bodo *board)
+void	calc_suite(t_bodo *board, t_solv *info)
+{
+	find_init_co_m(board, info);
+	find_slope()
+}
+
+void	suite(char *str, t_bodo *board, t_solv *info)
 {
 	if (board->prog == 0 && ft_strstr("exec", str))
 		get_player(str, board); //sets prog to 1 at the end
@@ -41,18 +47,20 @@ void	suite(char *str, t_bodo *board)
 		get_token(str, board);
 	if (board->prog == 4)
 	{
-
+		calc_suite(board, info);
 	}
 }
 
 int		main(void)
 {
 	t_bodo	*board;
+	t_solv	*info;
 	char	*str;
 
 	board = ft_memalloc(sizeof(t_bodo));
+	info = ft_memalloc(sizeof(t_solv));
 	while (get_next_line(0, &str) && board->prog < 5)
-		suite(str, board);
+		suite(str, board, info);
 	free(bodo);
 	free(str);
 	return (0);

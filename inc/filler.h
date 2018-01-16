@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/10 17:40:01 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/16 00:40:11 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,18 @@ typedef struct	s_bodo
 	char	**prev;
 	t_piece	*piece;
 }				t_bodo;
+
+typedef struct	s_solv
+{
+	int		myco[2];
+	int		opco[2];
+	int		q1[2];
+	int		q2[2];
+	int		q3[2];
+	int		q4[2];
+	float	s1;
+	int		s2;
+	int		s3;
+}				t_solv;
 
 #endif

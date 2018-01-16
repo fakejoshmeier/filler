@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/13 18:01:03 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/15 19:38:27 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,9 @@ void	get_player(char *str, t_bodo *board)
 	if (ft_isdigit(str[i]))
 		{
 			board->player = str[i] == 1 ? 'o' : 'x';
+			board->prog = 1;
 			return ;
 		}
-	else
-		++i;
-	}
-	board->prog = 1;
 }
 
 void	get_dimensions(char *str, t_bodo *board)
