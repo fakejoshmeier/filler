@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/16 00:40:16 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/17 15:55:55 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
  * 	prog4 - piece is added into map, stored new map is stored in prev, and map
  * 	is wiped. Prog gets set back to 2 until loop dies
 */
-void	calc_suite(t_bodo *board, t_solv *info)
+void	get_it_together(t_bodo *board, t_solv *info)
 {
-	find_init_co_m(board, info);
-	find_slope()
+	token_extract(board);
+
 }
 
 void	suite(char *str, t_bodo *board, t_solv *info)

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/16 00:40:11 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/17 15:56:00 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,18 +17,21 @@
 
 typedef struct	s_piece;
 {
-	int		x;
-	int		y;
+	int		row;
+	int		col;
+	int		*wor;
+	int		*loc;
 	char	**grid;
 }				t_piece;
 
 typedef struct	s_bodo
 {
-	int		dimx;
-	int		dimy;
+	int		row;
+	int		col;
 	int		prog;
 	int		pos;
 	int		pla;
+	int		step;
 	char	player;
 	char	**map;
 	char	**prev;

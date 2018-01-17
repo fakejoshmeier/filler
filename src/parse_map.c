@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/16 11:45:37 by josh             ###   ########.fr       */
+/*   Updated: 2018/01/17 09:52:32 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	get_player(char *str, t_bodo *board)
 	i = -1;
 	while (str[++i] != 'p')
 		;
-	board->player = str[i] == 1 ? 'o' : 'x';
+	board->player = str[i + 1] == 1 ? 'o' : 'x';
 	board->prog = 1;
 	return ;
 }
@@ -31,10 +31,10 @@ void	get_dimensions(char *str, t_bodo *board)
 	i = -1;
 	str += 8;
 	while (str[++i] != ' ')
-		board->dimx = board->dimx * 10 + (str[i] - '0');
+		board->row = board->row * 10 + (str[i] - '0');
 	while (str[++i] != ':')
-		board->dimy = board->dimy * 10 + (str[i] - '0');
-	board->map = ft_memalloc(sizeof(char *) * board->dimy);
+		board->col = board->col * 10 + (str[i] - '0');
+	board->map = ft_memalloc(sizeof(char *) * board->row);
 	board->prog = 2;
 }
 
@@ -42,7 +42,7 @@ void	map_storage(char *str, t_bodo *board)
 {
 	str += 4;
 	ft_strcpy(map[board->pos], str);
-	if (board->pos == board->dimx)
+	if (board->pos == board->row)
 	{
 		board->prog = 3;
 		return ;
@@ -57,16 +57,16 @@ void	get_piece(char *str, t_bodo *board)
 	i = -1;
 	str += 6;
 	while (str[++i] != ' ')
-		board->piece.x = board->piece.x * 10 + (str[i] - '0');
+		board->piece.row = board->piece.row * 10 + (str[i] - '0');
 	while (str[++i] != ':')
-		board->piece.y = board->piece.y * 10 + (str[i] - '0');
-	board->piece.map = ft_memalloc(sizeof(char *) * board->piece.y);
+		board->piece.col = board->piece.col * 10 + (str[i] - '0');
+	board->piece.grid = ft_memalloc(sizeof(char *) * board->piece.row);
 }
 
 void	get_token(char *str, t_bodo *board)
 {
 	ft_strcpy(board->piece.grid[board->pla], str);
-	if (board->pla == board->piece.x)
+	if (board->pla == board->piece.row)
 	{
 		board->prog = 4;
 		return ;
