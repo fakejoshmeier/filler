@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/17 15:56:00 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/17 23:26:20 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define FILLER_H
 # include <libft.h>
 # include <stdio.h>
-
+# define ESCAPE(a) if (a) return ;
 typedef struct	s_piece;
 {
 	int		row;
@@ -46,9 +46,8 @@ typedef struct	s_solv
 	int		q2[2];
 	int		q3[2];
 	int		q4[2];
-	float	s1;
-	int		s2;
-	int		s3;
+	int		up;
+	int		left;
 }				t_solv;
 
 #endif
