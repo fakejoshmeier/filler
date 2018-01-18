@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/06 17:01:42 by jmeier            #+#    #+#              #
-#    Updated: 2018/01/06 17:25:14 by jmeier           ###   ########.fr        #
+#    Updated: 2018/01/18 12:59:45 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,33 +24,39 @@ O_SRC = $(addprefix $(O_LOC), $(O_NAM))
 
 LIB_LOC = libft/
 LIB_NAM = libft.a
+LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
-H_LOC = -I inc/
+H_LOC = -I inc/ -I libft/inc
+HEADERS = inc/filler.h
 
 all: $(NAME)
 
-lib:
+$(NAME): $(O_SRC) $(LIB_SRC)
+	@echo Compiling...
+	@gcc -Wall -Werror -Wextra $^ -o $(NAME)
+	@echo Complete.  Dope.
+
+$(O_LOC)%.o: $(C_LOC)%.c $(HEADERS)
+	@echo Recompiling...
+	@gcc -Wall -Werror -Wextra $(H_LOC) -o $@ -c $<
+
+$(LIB_SRC): force
+	@echo Compiling libft...
 	@make -C $(LIB_LOC)
 
-$(NAME): $(O_SRC)
-	@echo Building $@...
-	@$(MAKE) lib
-	@echo Making libft...
-	@echo Making $(NAME)
-	@gcc $(O_SRC) -L $(LIB_LOC) -o $(NAME)
-	@echo Perfect.
-
-$(O_LOC)%.o: $(C_LOC)%.c
-	@gcc -Wall -Werror -Wextra $(H_LOC) -o $@ -c $<
+force:
+	@true
 
 clean:
 	@echo Cleaning .o files...
-	@/bin/rm -f $(O_SRC) libft.h.gch
+	@/bin/rm -f $(O_SRC)
+	@make clean -C $(LIB_LOC)
 	@echo .o files removed.
 
 fclean: clean
 	@echo Cleaning $(NAME) ...
 	@/bin/rm -f $(NAME)
+	@make fclean -C $(LIB_LOC)
 	@echo $(NAME) removed
 
 re: fclean all
