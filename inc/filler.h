@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/17 23:26:20 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/18 21:09:32 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <libft.h>
 # include <stdio.h>
 # define ESCAPE(a) if (a) return ;
+
 typedef struct	s_piece;
 {
 	int		row;
