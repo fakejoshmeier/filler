@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 21:33:39 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/19 21:58:30 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void	get_dimensions(char *str, t_bodo *board)
 void	map_storage(char *str, t_bodo *board)
 {
 	str += 4;
-	ft_strcpy(map[board->pos], str);
+	ft_strcpy(board->map[board->pos], str);
 	if (board->pos == board->row)
 	{
 		board->prog = 3;
 		return ;
 	}
-	board->++pos;
+	board->pos += 1;
 }
 
 void	get_piece(char *str, t_bodo *board)
@@ -57,19 +57,19 @@ void	get_piece(char *str, t_bodo *board)
 	i = -1;
 	str += 6;
 	while (str[++i] != ' ')
-		board->piece.row = board->piece.row * 10 + (str[i] - '0');
+		board->piece->row = board->piece->row * 10 + (str[i] - '0');
 	while (str[++i] != ':')
-		board->piece.col = board->piece.col * 10 + (str[i] - '0');
-	board->piece.grid = ft_memalloc(sizeof(char *) * board->piece.row);
+		board->piece->col = board->piece->col * 10 + (str[i] - '0');
+	board->piece->grid = ft_memalloc(sizeof(char *) * board->piece->row);
 }
 
 void	get_token(char *str, t_bodo *board)
 {
-	ft_strcpy(board->piece.grid[board->pla], str);
-	if (board->pla == board->piece.row)
+	ft_strcpy(board->piece->grid[board->pla], str);
+	if (board->pla == board->piece->row)
 	{
 		board->prog = 4;
 		return ;
 	}
-	board->++pla;
+	board->pla++;
 }

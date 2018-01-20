@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 15:54:11 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 21:27:21 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/19 22:13:44 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -106,17 +106,12 @@ void	nme_downrite(t_bodo *board, t_solv *info)
 
 void	orient_express(t_bodo *board, t_solv *info)
 {
-	if (touch)
-	{
-		if (info->up && info->left)
-			nme_upleft(board, info);
-		else if (info->up && !info->left)
-			nme_uprite(board, info);
-		else if (!info->up && info->left)
-			nme_downleft(board, info);
-		else
-			nme_downrite(board, info);
-	}
-	else
-		fill(board, info);
+	if (info->up && info->left)
+		nme_upleft(board, info);
+	else if (info->up && info->left == 0)
+		nme_uprite(board, info);
+	else if (info->up == 0 && info->left)
+		nme_downleft(board, info);
+	else if (info->up == 0 && info->left == 0)
+		nme_downrite(board, info);
 }

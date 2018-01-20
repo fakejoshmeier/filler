@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 21:32:02 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/19 22:19:26 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 ** 	is wiped. Prog gets set back to 2 until loop dies
 */
 
-void	suite(char *str, t_bodo *board, t_solv *info)
+void	swooce(char *str, t_bodo *board, t_solv *info)
 {
 	if (board->prog == 0 && ft_strstr("exec", str))
 		get_player(str, board);
@@ -38,13 +38,13 @@ void	suite(char *str, t_bodo *board, t_solv *info)
 		map_storage(str, board);
 	else if (ft_strnstr(str, "Piece", 5) && board->prog == 3)
 		get_piece(str, board);
-	else if (board->!piece && board->prog == 3)
+	else if (board->piece == NULL && board->prog == 3)
 		get_token(str, board);
 	else if (board->prog == 4)
 	{
 		token_extract(board);
-		orient_express(board, info);
 		find_me_nme_ori(board, info);
+		orient_express(board, info);
 	}
 	board->prog = 5;
 }
@@ -58,8 +58,8 @@ int		main(void)
 	board = ft_memalloc(sizeof(t_bodo));
 	info = ft_memalloc(sizeof(t_solv));
 	while (get_next_line(0, &str) && board->prog < 5)
-		suite(str, board, info);
-	free(bodo);
+		swooce(str, board, info);
+	free(board);
 	free(info);
 	free(str);
 	return (0);

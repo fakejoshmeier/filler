@@ -6,13 +6,13 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/06 17:01:42 by jmeier            #+#    #+#              #
-#    Updated: 2018/01/19 17:01:00 by jmeier           ###   ########.fr        #
+#    Updated: 2018/01/19 22:15:33 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = jmeier.filler
 
-FUNC = main parse_map s_calc token validate
+FUNC = main parse_map s_calc token validate orient
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FUNC))
