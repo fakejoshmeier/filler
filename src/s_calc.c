@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/15 21:10:59 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/17 23:03:17 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/19 21:18:16 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,7 @@ void	find_me_nme_ori(t_bodo *board, t_solv *i)
 			{
 				i->up = opco[0] < myco[0] ? 1 : 0;
 				i->left = opco[1] < myco[1] ? 1 : 0;
+				quadrants(board, i);
 				return ;
 			}
 		}

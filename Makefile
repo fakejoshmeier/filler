@@ -6,13 +6,13 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/06 17:01:42 by jmeier            #+#    #+#              #
-#    Updated: 2018/01/18 12:59:45 by jmeier           ###   ########.fr        #
+#    Updated: 2018/01/19 17:01:00 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = jmeier.filler
 
-FUNC = 
+FUNC = main parse_map s_calc token validate
 
 C_LOC = src/
 C_NAM = $(addsuffix .c, $(FUNC))
@@ -22,11 +22,11 @@ O_LOC = obj/
 O_NAM = $(addsuffix .o, $(FUNC))
 O_SRC = $(addprefix $(O_LOC), $(O_NAM))
 
-LIB_LOC = libft/
-LIB_NAM = libft.a
+LIB_LOC = ftprintf/
+LIB_NAM = libftprintf.a
 LIB_SRC = $(addprefix $(LIB_LOC), $(LIB_NAM))
 
-H_LOC = -I inc/ -I libft/inc
+H_LOC = -I inc/ -I ftprintf/inc -I ftprintf/libft/inc
 HEADERS = inc/filler.h
 
 all: $(NAME)
