@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 15:54:11 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 22:13:44 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/20 18:27:00 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,4 +114,6 @@ void	orient_express(t_bodo *board, t_solv *info)
 		nme_downleft(board, info);
 	else if (info->up == 0 && info->left == 0)
 		nme_downrite(board, info);
+	else
+		ft_printf("0 0\n");
 }

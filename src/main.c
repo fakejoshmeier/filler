@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 22:19:26 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/20 18:29:31 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ void	swooce(char *str, t_bodo *board, t_solv *info)
 		get_player(str, board);
 	else if (ft_strnstr(str, "Plateau", 7) && board->prog == 1)
 		get_dimensions(str, board);
-	else if (!ft_strnstr(str, "012345", 6) && board->prog == 2)
+	else if (!ft_strstr(str, "012345") && board->prog == 2)
 		map_storage(str, board);
 	else if (ft_strnstr(str, "Piece", 5) && board->prog == 3)
 		get_piece(str, board);
@@ -45,8 +45,8 @@ void	swooce(char *str, t_bodo *board, t_solv *info)
 		token_extract(board);
 		find_me_nme_ori(board, info);
 		orient_express(board, info);
+		board->prog = 5;
 	}
-	board->prog = 5;
 }
 
 int		main(void)
