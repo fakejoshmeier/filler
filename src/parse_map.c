@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 21:58:30 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/21 21:50:05 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,30 +19,26 @@ void	get_player(char *str, t_bodo *board)
 	i = -1;
 	while (str[++i] != 'p')
 		;
-	board->player = str[i + 1] == 1 ? 'o' : 'x';
+	board->player = str[i + 1] == '1' ? 'o' : 'x';
 	board->prog = 1;
 	return ;
 }
 
 void	get_dimensions(char *str, t_bodo *board)
 {
-	int		i;
-
-	i = -1;
-	str += 8;
-	while (str[++i] != ' ')
-		board->row = board->row * 10 + (str[i] - '0');
-	while (str[++i] != ':')
-		board->col = board->col * 10 + (str[i] - '0');
-	board->map = ft_memalloc(sizeof(char *) * board->row);
+	board->row = ft_atoi(ft_strchr(str, ' '));
+	board->col = ft_atoi(ft_strrchr(str, ' '));
+	board->map = ft_memalloc((sizeof(char *) * board->row));
 	board->prog = 2;
+	board->pos = 0;
 }
 
 void	map_storage(char *str, t_bodo *board)
 {
 	str += 4;
-	ft_strcpy(board->map[board->pos], str);
-	if (board->pos == board->row)
+	board->map[board->pos] = ft_memalloc(sizeof(char) * board->col);
+	board->map[board->pos] = str;
+	if (board->pos == board->row - 1)
 	{
 		board->prog = 3;
 		return ;
@@ -52,24 +48,22 @@ void	map_storage(char *str, t_bodo *board)
 
 void	get_piece(char *str, t_bodo *board)
 {
-	int		i;
-
-	i = -1;
-	str += 6;
-	while (str[++i] != ' ')
-		board->piece->row = board->piece->row * 10 + (str[i] - '0');
-	while (str[++i] != ':')
-		board->piece->col = board->piece->col * 10 + (str[i] - '0');
-	board->piece->grid = ft_memalloc(sizeof(char *) * board->piece->row);
+	board->piece = ft_memalloc(sizeof(t_piece));
+	board->piece->row = ft_atoi(ft_strchr(str, ' '));
+	board->piece->col = ft_atoi(ft_strrchr(str, ' '));
+	board->piece->grid = ft_memalloc((sizeof(char *) * board->piece->row));
+	board->prog = 4;
+	board->pla = 0;
 }
 
-void	get_token(char *str, t_bodo *board)
+void	get_token(char *str, t_bodo *b)
 {
-	ft_strcpy(board->piece->grid[board->pla], str);
-	if (board->pla == board->piece->row)
+	b->piece->grid[b->pla] = ft_memalloc((sizeof(char) * b->piece->col));
+	b->piece->grid[b->pla] = str;
+	if (b->pla == b->piece->row - 1)
 	{
-		board->prog = 4;
+		b->prog = 5;
 		return ;
 	}
-	board->pla++;
+	b->pla += 1;
 }
