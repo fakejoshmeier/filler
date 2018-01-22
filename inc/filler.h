@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 22:18:56 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/21 21:55:59 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,7 +52,7 @@ typedef struct	s_solv
 }				t_solv;
 
 int				main(void);
-void			swooce(char *str, t_bodo *board, t_solv *info);
+void			swooce(char *str, t_bodo *board);
 void			get_player(char *str, t_bodo *board);
 void			get_dimensions(char *str, t_bodo *board);
 void			map_storage(char *str, t_bodo *board);
