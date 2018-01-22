@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/20 18:29:31 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/21 23:54:12 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,25 +28,20 @@
 ** 	is wiped. Prog gets set back to 2 until loop dies
 */
 
-void	swooce(char *str, t_bodo *board, t_solv *info)
+void	swooce(char *str, t_bodo *board)
 {
-	if (board->prog == 0 && ft_strstr("exec", str))
+	if (ft_strstr(str, "exec"))
 		get_player(str, board);
-	else if (ft_strnstr(str, "Plateau", 7) && board->prog == 1)
+	else if (ft_strstr(str, "Plateau"))
 		get_dimensions(str, board);
+	else if (ft_strstr(str, "12345"))
+		return ;
 	else if (!ft_strstr(str, "012345") && board->prog == 2)
 		map_storage(str, board);
-	else if (ft_strnstr(str, "Piece", 5) && board->prog == 3)
+	else if (ft_strstr(str, "Piece"))
 		get_piece(str, board);
-	else if (board->piece == NULL && board->prog == 3)
+	else if (!ft_strstr(str, "Piece") || board->prog == 4)
 		get_token(str, board);
-	else if (board->prog == 4)
-	{
-		token_extract(board);
-		find_me_nme_ori(board, info);
-		orient_express(board, info);
-		board->prog = 5;
-	}
 }
 
 int		main(void)
@@ -57,8 +52,11 @@ int		main(void)
 
 	board = ft_memalloc(sizeof(t_bodo));
 	info = ft_memalloc(sizeof(t_solv));
-	while (get_next_line(0, &str) && board->prog < 5)
-		swooce(str, board, info);
+	while (get_next_line(0, &str) == 1 && board->prog < 4)
+		swooce(str, board);
+	token_extract(board);
+	find_me_nme_ori(board, info);
+	orient_express(board, info);
 	free(board);
 	free(info);
 	free(str);
