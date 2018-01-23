@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 23:24:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/19 22:08:15 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/22 16:11:11 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,21 +28,23 @@ int		piece_validation(t_bodo *b, int r, int c)
 	int		j;
 
 	j = 0;
-	i = -1;
+	i = 0;
 	if (r + b->piece->row > b->row)
 		return (0);
-	if (c + b->piece->col > b->col)
+	else if (c + b->piece->col > b->col)
 		return (0);
-	while (b->piece->wor[++i] && b->piece->loc[i])
+	while (i <= token_count(b))
 	{
-		if (b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] != b->player ||
-			b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] != b->player - 32
-			|| b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] != '.')
-			return (0);
-		else if (b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] == b->player
-			|| b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] !=
+		if (b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] == b->player
+			|| b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] ==
 			b->player - 32)
 			++j;
+		else if (b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] !=
+			b->player && b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] !=
+			b->player - 32 && b->map[b->piece->wor[i] + r][b->piece->loc[i] + c]
+			!= '.')
+			return (0);
+		i++;
 	}
 	if (j == 1)
 		return (1);

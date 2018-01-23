@@ -6,7 +6,7 @@
 #    By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/30 14:06:03 by jmeier            #+#    #+#              #
-#    Updated: 2018/01/19 16:56:35 by jmeier           ###   ########.fr        #
+#    Updated: 2018/01/22 14:27:02 by jmeier           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -59,11 +59,11 @@ $(NAME):$(O_SRC)
 	@echo ...Successfully compiled $@ library
 
 $(O_LOC)%.o: $(C_LOC)%.c
-	@echo Re-compiling $< file...
+
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
 $(O_LOC)%.o: $(LIB_LOC)%.c
-	@echo Re-compiling $< file...
+
 	@gcc $(C_FLAGS) $(H_LOCS) -o $@ -c $<
 
 clean:

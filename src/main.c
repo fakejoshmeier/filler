@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/21 23:54:12 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/22 16:42:07 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ void	swooce(char *str, t_bodo *board)
 		map_storage(str, board);
 	else if (ft_strstr(str, "Piece"))
 		get_piece(str, board);
-	else if (!ft_strstr(str, "Piece") || board->prog == 4)
+	else
 		get_token(str, board);
 }
 
@@ -52,7 +52,7 @@ int		main(void)
 
 	board = ft_memalloc(sizeof(t_bodo));
 	info = ft_memalloc(sizeof(t_solv));
-	while (get_next_line(0, &str) == 1 && board->prog < 4)
+	while (board->prog <= 4 && get_next_line(0, &str) == 1)
 		swooce(str, board);
 	token_extract(board);
 	find_me_nme_ori(board, info);
