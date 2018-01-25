@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/19 15:54:11 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/22 16:16:25 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/24 21:51:39 by josh             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -107,23 +107,11 @@ void	nme_downrite(t_bodo *board, t_solv *info)
 void	orient_express(t_bodo *board, t_solv *info)
 {
 	if (info->up && info->left)
-	{
-//		ft_printf("up&left\n");
 		nme_upleft(board, info);
-	}
 	else if (info->up && info->left == 0)
-	{
-//		ft_printf("up&rite\n");
 		nme_uprite(board, info);
-	}
 	else if (info->up == 0 && info->left)
-	{
-//		ft_printf("down&left\n");
 		nme_downleft(board, info);
-	}
 	else if (info->up == 0 && info->left == 0)
-	{
-//		ft_printf("down&rite\n");
 		nme_downrite(board, info);
-	}
 }
