@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 10:07:03 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/22 15:55:23 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/24 18:20:45 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,14 +48,14 @@ void	token_extract(t_bodo *board)
 	int		i;
 
 	i = token_count(board);
-	row = 0;
-	col = 0;
+	row = -1;
+	col = -1;
 	board->piece->wor = ft_memalloc(sizeof(int) * i);
 	board->piece->loc = ft_memalloc(sizeof(int) * i);
 	i = 0;
-	while (board->piece->grid[row] && row <= board->piece->row - 1)
+	while (board->piece->grid[++row] && row <= board->piece->row - 1)
 	{
-		while (board->piece->grid[row][col])
+		while (board->piece->grid[row][++col] && col <= board->piece->col - 1)
 		{
 			if (board->piece->grid[row][col] == '*')
 			{
@@ -63,9 +63,7 @@ void	token_extract(t_bodo *board)
 				board->piece->loc[i] = col;
 				++i;
 			}
-			++col;
 		}
-		col = 0;
-		++row;
+		col = -1;
 	}
 }

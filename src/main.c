@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/22 16:42:07 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/24 19:33:00 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 ** 	is wiped. Prog gets set back to 2 until loop dies
 */
 
-void	swooce(char *str, t_bodo *board)
+void	swooce(char *str, t_bodo *board, t_solv *info)
 {
 	if (ft_strstr(str, "exec"))
 		get_player(str, board);
@@ -38,10 +38,19 @@ void	swooce(char *str, t_bodo *board)
 		return ;
 	else if (!ft_strstr(str, "012345") && board->prog == 2)
 		map_storage(str, board);
+	if (board->prog == 4)
+	{
+		get_token(str, board);
+		if (board->prog == 5)
+		{
+			token_extract(board);
+			find_me_nme_ori(board, info);
+			orient_express(board, info);
+			board->prog = 6;
+		}
+	}
 	else if (ft_strstr(str, "Piece"))
 		get_piece(str, board);
-	else
-		get_token(str, board);
 }
 
 int		main(void)
@@ -52,11 +61,8 @@ int		main(void)
 
 	board = ft_memalloc(sizeof(t_bodo));
 	info = ft_memalloc(sizeof(t_solv));
-	while (board->prog <= 4 && get_next_line(0, &str) == 1)
-		swooce(str, board);
-	token_extract(board);
-	find_me_nme_ori(board, info);
-	orient_express(board, info);
+	while (board->prog <= 5 && get_next_line(0, &str))
+		swooce(str, board, info);
 	free(board);
 	free(info);
 	free(str);

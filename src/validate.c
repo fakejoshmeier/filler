@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/17 23:24:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/22 16:11:11 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/24 18:24:40 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		piece_validation(t_bodo *b, int r, int c)
 		return (0);
 	while (i <= token_count(b))
 	{
-		if (b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] == b->player
+		if (b->map[r + b->piece->wor[i]][c + b->piece->loc[i]] == b->player
 			|| b->map[b->piece->wor[i] + r][b->piece->loc[i] + c] ==
 			b->player - 32)
 			++j;
