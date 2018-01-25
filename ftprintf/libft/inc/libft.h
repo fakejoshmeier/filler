@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2017/12/12 19:13:54 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/24 21:23:42 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 # include <string.h>
 # include <unistd.h>
 # include <stdlib.h>
-# define BUFF_SIZE 4096
+# define BUFF_SIZE 1
 # define ASSERT(a) if (!(a)) return (-1);
 # define C_ASSERT(a) if (!(a)) return (NULL);
 
