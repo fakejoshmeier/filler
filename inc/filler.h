@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/24 14:26:07 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/26 00:27:37 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct	s_bodo
 	int			pla;
 	int			step;
 	char		player;
+	char		teki;
 	char		**map;
 	char		**prev;
 	t_piece		*piece;
@@ -52,19 +53,18 @@ typedef struct	s_solv
 }				t_solv;
 
 int				main(void);
-void			swooce(char *str, t_bodo *board, t_solv *info);
+void			swooce(char *str, t_bodo *board);
 void			get_player(char *str, t_bodo *board);
 void			get_dimensions(char *str, t_bodo *board);
 void			map_storage(char *str, t_bodo *board);
 void			get_piece(char *str, t_bodo *board);
 void			get_token(char *str, t_bodo *board);
-void			orient_express(t_bodo *board, t_solv *info);
+int				orient_express(t_bodo *board, t_solv *info);
 void			nme_upleft(t_bodo *board, t_solv *info);
 void			nme_uprite(t_bodo *board, t_solv *info);
 void			nme_downleft(t_bodo *board, t_solv *info);
-void			nme_downrite(t_bodo *board, t_solv *info);
-void			hot_garbage(t_bodo *board, t_solv *i, int row, int col);
-void			pure_trash(t_bodo *board, t_solv *i, int row, int col);
+void			nme_downrite(t_bodo *board);
+void			hot_garbage(t_solv *i, int row, int col, int x);
 void			quadrants(t_bodo *board, t_solv *f);
 void			find_me_nme_ori(t_bodo *board, t_solv *i);
 void			token_extract(t_bodo *board);
