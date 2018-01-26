@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/29 12:01:46 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/24 21:23:42 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/25 16:29:04 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -133,4 +133,5 @@ char				*ft_strtrim(char const *s);
 int					ft_sqrt(unsigned int nb);
 int					ft_tolower(int c);
 int					ft_toupper(int c);
+int					ft_pythag(int x, int y);
 #endif
