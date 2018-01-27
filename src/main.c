@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/26 17:08:14 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/26 18:40:12 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,6 @@ int		main(void)
 	free(board);
 	free(info);
 	free(str);
-	sleep(3);
+	sleep(1);
 	return (0);
 }
