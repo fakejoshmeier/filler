@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:25:53 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/26 00:27:37 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/26 17:07:12 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,10 +60,10 @@ void			map_storage(char *str, t_bodo *board);
 void			get_piece(char *str, t_bodo *board);
 void			get_token(char *str, t_bodo *board);
 int				orient_express(t_bodo *board, t_solv *info);
-void			nme_upleft(t_bodo *board, t_solv *info);
-void			nme_uprite(t_bodo *board, t_solv *info);
-void			nme_downleft(t_bodo *board, t_solv *info);
-void			nme_downrite(t_bodo *board);
+int				nme_upleft(t_bodo *board);
+int				nme_uprite(t_bodo *board);
+int				nme_downleft(t_bodo *board);
+int				nme_downrite(t_bodo *board);
 void			hot_garbage(t_solv *i, int row, int col, int x);
 void			quadrants(t_bodo *board, t_solv *f);
 void			find_me_nme_ori(t_bodo *board, t_solv *i);

@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/06 17:33:48 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/25 15:41:57 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/26 17:14:18 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ void	get_player(char *str, t_bodo *board)
 	board->player = str[i + 1] == '1' ? 'o' : 'x';
 	board->teki = board->player == 'o' ? 'x' : 'o';
 	board->prog = 1;
-	return ;
 }
 
 void	get_dimensions(char *str, t_bodo *board)

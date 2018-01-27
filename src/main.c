@@ -6,7 +6,7 @@
 /*   By: jmeier <jmeier@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/01/08 15:09:04 by jmeier            #+#    #+#             */
-/*   Updated: 2018/01/25 22:44:57 by jmeier           ###   ########.fr       */
+/*   Updated: 2018/01/26 17:08:14 by jmeier           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@
 
 void	swooce(char *str, t_bodo *board)
 {
-	if (ft_strstr(str, "exec"))
+	if (ft_strstr(str, "exec") && board->prog == 0)
 		get_player(str, board);
 	else if (ft_strstr(str, "Plateau"))
 		get_dimensions(str, board);
@@ -52,8 +52,7 @@ int		main(void)
 
 	board = ft_memalloc(sizeof(t_bodo));
 	info = ft_memalloc(sizeof(t_solv));
-	board->prog = 0;
-	while (1)
+	while (board->prog < 6)
 	{
 		get_next_line(0, &str);
 		swooce(str, board);
@@ -62,7 +61,7 @@ int		main(void)
 			token_extract(board);
 			find_me_nme_ori(board, info);
 			if (orient_express(board, info) == 0)
-				break;
+				board->prog = 6;
 		}
 	}
 	free(board);
